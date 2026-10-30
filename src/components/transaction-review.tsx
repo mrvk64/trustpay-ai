@@ -17,6 +17,13 @@ export default function TransactionReview({ clientId }: { clientId: string }) {
   const [history, setHistory] = useState<SavedReceipt[] | null>(null);
   const [historyMessage, setHistoryMessage] = useState("");
   function reset() { setResult(null); setAcknowledged(false); }
+  async function loadHistory() {
+    setHistoryMessage("Loading receipts…");
+    try { const receipts = await receiptHistory(); setHistory(receipts); setHistoryMessage(receipts.length ? "" : "No saved receipts for this browser yet."); }
+    catch { setHistoryMessage("Receipts could not be loaded. Please retry."); }
+  }
+  // An open receipt list would otherwise keep showing what it found before this purchase.
+  const historyOpen = history !== null || historyMessage !== "";
 
   return <div className="review-workspace">
     <p className="product-kicker">01 · Understand the terms</p>
@@ -57,15 +64,11 @@ export default function TransactionReview({ clientId }: { clientId: string }) {
       <p className="review-caption">Model: {result.model}. Based on supplied text; seller identity and delivery have not been independently verified.</p>
       {result.decision === "eligible" && <>
         <label className="review-ack"><input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} /> I reviewed the terms and want to approve this $5 Sandbox purchase.</label>
-        {acknowledged && <PayPalCheckout key={result.assessmentId} clientId={clientId} assessmentId={result.assessmentId} onReviewExpired={(message) => { setResult({ ok: false, message }); setAcknowledged(false); }} />}
+        {acknowledged && <PayPalCheckout key={result.assessmentId} clientId={clientId} assessmentId={result.assessmentId} onReviewExpired={(message) => { setResult({ ok: false, message }); setAcknowledged(false); }} onCaptured={() => { if (historyOpen) void loadHistory(); }} />}
       </>}
     </section>}
     <section className="receipt-history">
-      <button type="button" className="history-button" onClick={async () => {
-        setHistoryMessage("Loading receipts…");
-        try { const receipts = await receiptHistory(); setHistory(receipts); setHistoryMessage(receipts.length ? "" : "No saved receipts for this browser yet."); }
-        catch { setHistoryMessage("Receipts could not be loaded. Please retry."); }
-      }}>View saved receipts</button>
+      <button type="button" className="history-button" onClick={loadHistory}>View saved receipts</button>
       <p role="status" className="review-caption">{historyMessage}</p>
       {history?.map((receipt) => <details key={receipt.assessmentId} className="evidence-details">
         <summary>{receipt.payment.amount} {receipt.payment.currency} · {receipt.payment.status} · {new Date(receipt.capturedAt).toLocaleDateString()}</summary>

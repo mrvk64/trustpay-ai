@@ -17,6 +17,8 @@ type PayPalCheckoutProps = {
   assessmentId: string;
   /** Called when the server says only a fresh review can continue. */
   onReviewExpired: (message: string) => void;
+  /** Called once the payment is captured and its receipt saved. */
+  onCaptured: () => void;
 };
 
 type CheckoutState =
@@ -34,11 +36,13 @@ function CheckoutButton({
   stateName,
   onStateChange,
   onReviewExpired,
+  onCaptured,
 }: {
   assessmentId: string;
   stateName: CheckoutState["name"];
   onStateChange: Dispatch<SetStateAction<CheckoutState>>;
   onReviewExpired: (message: string) => void;
+  onCaptured: () => void;
 }) {
   const { error, loadingStatus, isHydrated } = usePayPal();
   // The SDK's onError receives only its own error, so keep the server's explanation here.
@@ -78,6 +82,7 @@ function CheckoutButton({
       }
 
       onStateChange({ name: "complete", receipt: result.receipt });
+      onCaptured();
     },
     onCancel: () => onStateChange({ name: "cancelled" }),
     onError: () => onStateChange({ name: "error", message: serverFailure.current ?? DEFAULT_ERROR }),
@@ -131,7 +136,7 @@ function CheckoutButton({
   );
 }
 
-export default function PayPalCheckout({ clientId, assessmentId, onReviewExpired }: PayPalCheckoutProps) {
+export default function PayPalCheckout({ clientId, assessmentId, onReviewExpired, onCaptured }: PayPalCheckoutProps) {
   const [state, setState] = useState<CheckoutState>({ name: "idle" });
 
   if (state.name === "complete") {
@@ -179,6 +184,7 @@ export default function PayPalCheckout({ clientId, assessmentId, onReviewExpired
           stateName={state.name}
           onStateChange={setState}
           onReviewExpired={onReviewExpired}
+          onCaptured={onCaptured}
         />
       </PayPalProvider>
 
