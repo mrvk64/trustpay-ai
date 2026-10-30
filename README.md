@@ -32,7 +32,7 @@ People pay strangers online for small digital services every day: a logo, an ava
 You need Node.js 24+, a free [PayPal Developer](https://developer.paypal.com/dashboard/) account, and a [Claude Console](https://platform.claude.com/) API key. Each review makes one Claude API call billed to that key.
 
 ```powershell
-git clone <this repository>
+git clone https://github.com/mrvk64/trustpay-ai.git
 cd trustpay-ai
 npm install
 Copy-Item .env.example .env.local   # macOS/Linux: cp .env.example .env.local

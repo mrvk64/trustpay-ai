@@ -78,7 +78,7 @@ nextjs, react, typescript, node.js, paypal, paypal-javascript-sdk, paypal-orders
 
 ## Try it out
 
-- Code: TODO GitHub repository URL (public, MIT license)
+- Code: https://github.com/mrvk64/trustpay-ai (public, MIT license)
 - Setup: the README's "Quick start (judges)" section covers everything needed to run it locally with a free PayPal Sandbox app and a Claude API key.
 - Hosted demo: TODO, if one is deployed before the deadline
 

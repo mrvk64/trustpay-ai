@@ -13,7 +13,7 @@ Submission deadline: November 12, 2026 at noon PST (2 p.m. America/Chicago). Tar
 | Central PayPal Sandbox integration | Verified create and capture, completed USD 5.00 receipt, user-provided API logs. |
 | Meaningful AI functionality | Done. Claude reviews the supplied seller terms; quoted findings, plus deterministic rule checks, decide whether the server will create a PayPal order. Four opt-in live tests cover clarify, block, prompt-injection, and eligible cases. |
 | Working prototype | Review → clarify → acknowledge → PayPal Sandbox capture verified end to end on October 29, 2026, with the review saved alongside the receipt. |
-| Public open-source repository | MIT `LICENSE` at the repo root. Remaining: publish to GitHub as a public repository and confirm the license shows in the About section. |
+| Public open-source repository | Done. Published October 30, 2026 at https://github.com/mrvk64/trustpay-ai; GitHub detects the MIT license in the About section. |
 | Complete source, assets, setup | README has a judge quick start, AI model/service disclosure, demo sequence, and troubleshooting. Template Next.js/Vercel logos removed; app icon is original. Fresh-clone build verified locally on October 30, 2026. |
 | Judge access | Local instructions are complete, but judges need their own free PayPal Sandbox app and a paid Claude API key. A hosted demo (for example on Render) would remove that barrier; it needs rate limiting and server-side keys first. |
 | Project description | Draft in `docs/DEVPOST_SUBMISSION.md`: pitch, problem, workflow, PayPal APIs, tools, challenges, limitations. Remaining: fill in the repository and video links, then paste into Devpost. |
