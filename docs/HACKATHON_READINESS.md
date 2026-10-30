@@ -16,8 +16,8 @@ Submission deadline: November 12, 2026 at noon PST (2 p.m. America/Chicago). Tar
 | Public open-source repository | MIT `LICENSE` at the repo root. Remaining: publish to GitHub as a public repository and confirm the license shows in the About section. |
 | Complete source, assets, setup | README has a judge quick start, AI model/service disclosure, demo sequence, and troubleshooting. Template Next.js/Vercel logos removed; app icon is original. Fresh-clone build verified locally on October 30, 2026. |
 | Judge access | Local instructions are complete, but judges need their own free PayPal Sandbox app and a paid Claude API key. A hosted demo (for example on Render) would remove that barrier; it needs rate limiting and server-side keys first. |
-| Project description | README now covers problem, audience, workflow, PayPal APIs, and tools. Remaining: adapt it into the Devpost form text with limitations. |
-| Public YouTube video under 3 minutes | Pending: actual browser operation, AI review, approval decision, PayPal checkout, completed receipt. Target 2:30. |
+| Project description | Draft in `docs/DEVPOST_SUBMISSION.md`: pitch, problem, workflow, PayPal APIs, tools, challenges, limitations. Remaining: fill in the repository and video links, then paste into Devpost. |
+| Public YouTube video under 3 minutes | Script and recording setup in `docs/DEMO_VIDEO_SCRIPT.md` (target 2:30, production build, synthetic scenarios, no third-party brands). Remaining: record, upload as Public, and add the link. |
 | Rights and English materials | Review assets/dependency licenses and permission for included third-party marks/media; use English throughout. |
 | Registration and eligibility | User must confirm Devpost registration, age/residency eligibility, ownership, and absence of excluded affiliations/conflicts under the rules. |
 

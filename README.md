@@ -166,6 +166,8 @@ src/lib/paypal/order-data.ts          Pure request/receipt helpers
 docs/IMPLEMENTATION_PLAN.md           Solo milestone plan
 docs/TECHNICAL_REQUIREMENTS.md        Verified API and security requirements
 docs/HACKATHON_READINESS.md           Submission checklist and judging plan
+docs/DEVPOST_SUBMISSION.md            Devpost form text draft
+docs/DEMO_VIDEO_SCRIPT.md             2:30 demo video script and recording setup
 ```
 
 ## Verified PayPal references
