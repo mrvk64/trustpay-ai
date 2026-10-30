@@ -96,11 +96,15 @@ TODO public YouTube link (under 3 minutes). Script: `docs/DEMO_VIDEO_SCRIPT.md`.
 
 Best Use of PayPal + AI and Best Demo Delivery fit what the build demonstrates. Agentic Commerce is not a fit: no agent acts or pays on the buyer's behalf.
 
-## Gallery images (suggested)
+## Gallery images
 
-1. Hidden-instruction scenario: "Payment paused" with the Claude finding and the TrustPay rule finding.
-2. Missing delivery promise: Claude's questions for the seller.
-3. Eligible terms: acknowledgement ticked and the PayPal button visible.
-4. Completed Sandbox capture showing order ID, capture ID, and review ID.
+Upload `docs/screenshots/` in order (all 1800×1200, 3:2, captured from the live demo; the first becomes the thumbnail):
 
-Use synthetic scenarios only, and keep `.env.local`, the PayPal Developer Dashboard secret, and Sandbox passwords out of every image.
+1. `1-overview.jpg`: the page and review card
+2. `2-payment-paused.jpg`: hidden-instruction listing, "Payment paused" with quoted findings
+3. `3-hidden-instruction.jpg`: Claude rejects the embedded instruction; the TrustPay rule also flags the gift-card fee
+4. `4-questions.jpg`: missing delivery terms produce questions for the seller
+5. `5-approve.jpg`: clarified terms, acknowledgement ticked, PayPal button
+6. `6-receipt.jpg`: completed Sandbox capture linked to its review
+
+Keep `.env.local`, the PayPal Developer Dashboard secret, and Sandbox passwords out of any image you add.

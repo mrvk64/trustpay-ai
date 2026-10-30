@@ -6,6 +6,12 @@ Built solo for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/)
 
 **Live demo:** https://trustpay-ai-d73r.onrender.com (free hosting: the first visit after a quiet spell can take about a minute while the server wakes up). Paying requires a PayPal Sandbox Personal account.
 
+![TrustPay AI: the review card beside the "Confidence before commitment" headline](docs/screenshots/1-overview.jpg)
+
+| Unsafe terms pause payment | Claude ignores a hidden instruction; a TrustPay rule also fires | Approved terms unlock PayPal |
+| --- | --- | --- |
+| ![Payment paused with quoted findings](docs/screenshots/2-payment-paused.jpg) | ![Hidden instruction finding and TrustPay rule finding](docs/screenshots/3-hidden-instruction.jpg) | ![Terms ready, acknowledgement ticked, PayPal button shown](docs/screenshots/5-approve.jpg) |
+
 ## The problem
 
 People pay strangers online for small digital services every day: a logo, an avatar, a quick edit. The seller's promise sits in a chat message or listing, and the buyer often finds out it was vague ("I'll send it when I can"), or a setup for a scam ("send your verification code"), only after paying. TrustPay puts a review step in front of the payment button. Missing terms get a question for the seller, unsafe requests pause checkout, and acceptable terms are shown to the buyer for an explicit approval before PayPal opens.
