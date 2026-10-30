@@ -30,8 +30,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# environment files (credentials stay local; the template is safe to commit)
+.env
+.env.*
+!.env.example
+/.trustpay-data/
 
 # vercel
 .vercel

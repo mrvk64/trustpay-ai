@@ -1,69 +1,160 @@
-import Image from "next/image";
+import TransactionReview from "@/components/transaction-review";
+import { DEMO_PRODUCT } from "@/lib/demo-product";
+import { getPublicPayPalConfig } from "@/lib/paypal/config";
+
+const flow = [
+  {
+    step: "01",
+    title: "Review",
+    copy: "Claude reviews the seller’s terms and asks for missing details.",
+    state: "active",
+  },
+  {
+    step: "02",
+    title: "Approve",
+    copy: "The buyer approves a real order inside PayPal Sandbox.",
+    state: "active",
+  },
+  {
+    step: "03",
+    title: "Capture",
+    copy: "The server captures the approved order and returns a receipt.",
+    state: "active",
+  },
+] as const;
 
 export default function Home() {
+  const payPalConfig = getPublicPayPalConfig();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="site-shell">
+      <nav className="topbar" aria-label="Primary navigation">
+        <a className="brand" href="#top" aria-label="TrustPay AI home">
+          <span className="brand-mark" aria-hidden="true">
+            T
+          </span>
+          <span>TrustPay AI</span>
+        </a>
+        <div className="build-badge">
+          <span className="status-dot" aria-hidden="true" />
+          Sandbox build 0.2
+        </div>
+      </nav>
+
+      <div id="top" className="hero-grid">
+        <section className="hero-copy" aria-labelledby="hero-title">
+          <div className="eyebrow">
+            <span>Review → Clarify → Pay</span>
+            <span aria-hidden="true">·</span>
+            <span>Powered by Claude</span>
+          </div>
+          <h1 id="hero-title">
+            Confidence before <span>commitment.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="hero-lede">
+            Buying a digital service from someone new? Understand the seller’s
+            promise, resolve missing terms, and approve your purchase through
+            PayPal once you have reviewed the evidence.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+          <div className="promise-row" aria-label="Milestone guarantees">
+            <div>
+              <strong>Sandbox only</strong>
+              <span>No real money moves</span>
+            </div>
+            <div>
+              <strong>Server verified</strong>
+              <span>Price never comes from the browser</span>
+            </div>
+          </div>
+
+          <ol className="flow-list" aria-label="TrustPay transaction flow">
+            {flow.map((item) => (
+              <li key={item.step}>
+                <span className="flow-step">{item.step}</span>
+                <div>
+                  <h2>{item.title}</h2>
+                  <p>{item.copy}</p>
+                </div>
+                <span className="flow-state">
+                  Ready
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <aside className="checkout-card" aria-labelledby="checkout-title">
+          <div className="card-topline">
+            <span className="sandbox-pill">PayPal Sandbox</span>
+            <span className="secure-label">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 10V8a5 5 0 0 1 10 0v2m-9 0h8a2 2 0 0 1 2 2v7H6v-7a2 2 0 0 1 2-2Z" />
+              </svg>
+              Server secured
+            </span>
+          </div>
+
+          <div className="product-block">
+            <div className="product-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M24 5 39 11v11c0 10-6.4 17.2-15 21-8.6-3.8-15-11-15-21V11l15-6Z" />
+                <path d="m17.5 24 4.2 4.2 9.2-9.4" />
+              </svg>
+            </div>
+            <div>
+              <p className="product-kicker">Demo purchase</p>
+              <h2 id="checkout-title">{DEMO_PRODUCT.name}</h2>
+              <p>{DEMO_PRODUCT.description}</p>
+            </div>
+          </div>
+
+          <div className="order-line">
+            <span>One-time sandbox charge</span>
+            <strong>
+              ${DEMO_PRODUCT.price} {DEMO_PRODUCT.currency}
+            </strong>
+          </div>
+
+          <div className="checkout-area">
+            {payPalConfig ? (
+              <TransactionReview
+                clientId={payPalConfig.clientId}
+              />
+            ) : (
+              <div className="setup-panel" role="status">
+                <span className="setup-number">1</span>
+                <div>
+                  <strong>Connect your Sandbox app</strong>
+                  <p>
+                    Copy <code>.env.example</code> to <code>.env.local</code>,
+                    then add your own PayPal Sandbox client ID and secret.
+                  </p>
+                  <p className="setup-note">
+                    Keep the secret local—never paste it into chat or commit it.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="card-footer">
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 4.5 6v5.5c0 5 3.2 8.6 7.5 10.5 4.3-1.9 7.5-5.5 7.5-10.5V6L12 3Z" />
+                <path d="m8.5 12 2.2 2.2 4.8-4.9" />
+              </svg>
+              Credentials stay server-side
+            </span>
+            <span>Orders API v2</span>
+          </div>
+        </aside>
+      </div>
+
+      <footer className="site-footer">
+        <span>TrustPay AI · Hackathon prototype</span>
+        <span>Built for transparent, testable transactions</span>
+      </footer>
+    </main>
   );
 }
