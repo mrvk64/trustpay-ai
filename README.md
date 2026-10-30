@@ -4,6 +4,8 @@
 
 Built solo for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/). Runs entirely on PayPal Sandbox, so no real money moves.
 
+**Live demo:** https://trustpay-ai-d73r.onrender.com (free hosting: the first visit after a quiet spell can take about a minute while the server wakes up). Paying requires a PayPal Sandbox Personal account.
+
 ## The problem
 
 People pay strangers online for small digital services every day: a logo, an avatar, a quick edit. The seller's promise sits in a chat message or listing, and the buyer often finds out it was vague ("I'll send it when I can"), or a setup for a scam ("send your verification code"), only after paying. TrustPay puts a review step in front of the payment button. Missing terms get a question for the seller, unsafe requests pause checkout, and acceptable terms are shown to the buyer for an explicit approval before PayPal opens.

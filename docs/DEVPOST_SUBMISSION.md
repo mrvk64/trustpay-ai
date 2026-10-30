@@ -80,13 +80,13 @@ nextjs, react, typescript, node.js, paypal, paypal-javascript-sdk, paypal-orders
 
 - Code: https://github.com/mrvk64/trustpay-ai (public, MIT license)
 - Setup: the README's "Quick start (judges)" section covers everything needed to run it locally with a free PayPal Sandbox app and a Claude API key.
-- Hosted demo: TODO Render URL. Add: "First load can take up to a minute while the free server wakes up."
+- Hosted demo: https://trustpay-ai-d73r.onrender.com (first load can take up to a minute while the free server wakes up)
 
 ## Testing instructions for judges (Devpost private notes only)
 
 Fill in the test buyer in Devpost itself. Never commit these credentials to the repository.
 
-> Open the hosted demo (first load can take up to a minute). Try **Missing delivery promise**, then **Seller clarifies terms**, tick the acknowledgement, and pay with this PayPal Sandbox buyer. It's a test account with fake funds: email TODO, password TODO. **Hidden instruction to the AI** shows a blocked payment. Reviews are capped per visitor and per day to protect the API budget; if you hit a cap, the page says when it resets, and the README explains how to run it locally.
+> Open https://trustpay-ai-d73r.onrender.com (first load can take up to a minute). Try **Missing delivery promise**, then **Seller clarifies terms**, tick the acknowledgement, and pay with this PayPal Sandbox buyer. It's a test account with fake funds: email TODO, password TODO. **Hidden instruction to the AI** shows a blocked payment. Reviews are capped per visitor and per day to protect the API budget; if you hit a cap, the page says when it resets, and the README explains how to run it locally.
 
 ## Video
 
