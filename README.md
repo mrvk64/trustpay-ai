@@ -145,6 +145,19 @@ Manual Sandbox smoke test:
 
 No live credentials or real money are needed. Keep the app local/private until authentication and rate limiting are added.
 
+## Deploy a hosted demo (Render)
+
+`render.yaml` is a [Render Blueprint](https://render.com/docs/blueprint-spec) for a single free web service. Render fits this app because assessments live in one long-running Node process. Serverless platforms that spread requests across short-lived functions would lose reviews between requests.
+
+1. In Render, choose **New → Blueprint** and connect this GitHub repository.
+2. When prompted, enter `NEXT_PUBLIC_PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, and `ANTHROPIC_API_KEY`. These are your Sandbox app and Claude key; they stay in Render, never in Git. The Client ID is built into the page, so change it only with a redeploy.
+3. Deploy. The build runs `npm ci --include=dev && npm run build` on Node 24 (`.node-version`), then `npm start` serves on Render's `PORT`.
+4. In the Claude Console, set a monthly spend limit on the workspace that owns the key as a hard backstop.
+
+Claude review caps protect a public demo's API budget. Each review is one Claude call; a measured review of the demo scenario used about 1,400 input and 600 output tokens. The defaults are 20 reviews per browser per hour, 40 per IP per hour, and 100 per UTC day across all visitors; override them with `REVIEW_LIMIT_PER_SESSION_HOUR`, `REVIEW_LIMIT_PER_IP_HOUR`, and `REVIEW_LIMIT_PER_DAY`. The daily cap is the real cost guard: browser and IP caps can be sidestepped by clearing cookies or rotating addresses. Token usage for every review is written to the server log.
+
+Free-plan caveats: the service sleeps after 15 minutes without traffic and takes about a minute to wake, and its filesystem is wiped on every restart, so saved receipts, pending reviews, and limit counters reset. Render's free plan also allows one instance only, which is what the in-memory session store requires.
+
 ## Repository map
 
 ```text
@@ -158,6 +171,7 @@ src/lib/review/rules.ts               Deterministic rule checks (stricter-only)
 src/lib/review/policy.ts              Checkout decision and quote validation
 src/lib/review/session.ts             Expiring in-memory assessments bound to a browser cookie
 src/lib/review/receipts.ts            Saved receipts under .trustpay-data/
+src/lib/review/limits.ts              Per-browser, per-IP, and daily review caps
 src/lib/review/examples.ts            Synthetic demo scenarios
 src/lib/demo-product.ts               Server-owned product and amount
 src/lib/paypal/config.ts              Credential validation and SDK environment
@@ -168,6 +182,7 @@ docs/TECHNICAL_REQUIREMENTS.md        Verified API and security requirements
 docs/HACKATHON_READINESS.md           Submission checklist and judging plan
 docs/DEVPOST_SUBMISSION.md            Devpost form text draft
 docs/DEMO_VIDEO_SCRIPT.md             2:30 demo video script and recording setup
+render.yaml                           Render Blueprint for the hosted demo
 ```
 
 ## Verified PayPal references

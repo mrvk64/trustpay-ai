@@ -49,6 +49,7 @@ The implementation uses the assessment ID as the create `PayPal-Request-Id` and 
 | `PAYPAL_CLIENT_SECRET` | Server only | Authenticates the merchant app through the server SDK. |
 | `ANTHROPIC_API_KEY` | Server only | Authenticates Claude API calls for the transaction review. |
 | `CLAUDE_MODEL` | Server only | Optional model ID; defaults to `claude-sonnet-5-5`. |
+| `REVIEW_LIMIT_PER_SESSION_HOUR`, `REVIEW_LIMIT_PER_IP_HOUR`, `REVIEW_LIMIT_PER_DAY` | Server only | Optional review caps; defaults 20, 40, and 100. |
 
 `.env.local`, `.env`, and environment-specific variants are ignored. `.env.example` is deliberately committed with placeholders.
 

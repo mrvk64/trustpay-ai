@@ -7,10 +7,10 @@ import { decideCheckout } from "./policy";
 // Opt-in only: uses API credits. Never runs as part of ordinary npm test.
 it.skipIf(process.env.TRUSTPAY_LIVE_TEST !== "1")("Claude reviews synthetic terms with grounded evidence", async () => {
   const example = REVIEW_EXAMPLES[1];
-  const { review, model } = await reviewTransaction({ listing: example.listing, clarification: example.clarification });
+  const { review, model, usage } = await reviewTransaction({ listing: example.listing, clarification: example.clarification });
   expect(decideCheckout(review)).toBe("clarification_required");
   expect(review.questions.length).toBeGreaterThan(0);
-  console.log(JSON.stringify({ model, decision: decideCheckout(review), findings: review.findings.length, questions: review.questions.length }));
+  console.log(JSON.stringify({ model, decision: decideCheckout(review), findings: review.findings.length, questions: review.questions.length, ...usage }));
 }, 60000);
 
 it.skipIf(process.env.TRUSTPAY_LIVE_TEST !== "1")("Claude blocks an explicit password and verification-code request", async () => {

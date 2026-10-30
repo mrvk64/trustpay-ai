@@ -122,8 +122,9 @@ function CheckoutButton({
       />
       {stateName === "idle" ? (
         <p className="checkout-message">
-          Use the Personal buyer account from your PayPal Sandbox—not a real
-          PayPal account.
+          Sign in with a PayPal Sandbox Personal (buyer) account, never a real
+          PayPal login. Hackathon judges: use the test buyer from the Devpost
+          testing notes.
         </p>
       ) : null}
     </>

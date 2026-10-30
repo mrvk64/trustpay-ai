@@ -153,7 +153,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <span>TrustPay AI · Hackathon prototype</span>
-        <span>Built for transparent, testable transactions</span>
+        <a href="https://github.com/mrvk64/trustpay-ai">Source on GitHub</a>
       </footer>
     </main>
   );

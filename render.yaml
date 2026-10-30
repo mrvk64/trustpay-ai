@@ -1,0 +1,30 @@
+# Render Blueprint for the hosted TrustPay demo (https://render.com/docs/blueprint-spec).
+# Secrets marked `sync: false` are typed into the Render dashboard when the Blueprint is
+# created; they are never stored in this file.
+services:
+  - type: web
+    name: trustpay-ai
+    runtime: node
+    plan: free
+    # --include=dev: next build needs TypeScript even when NODE_ENV=production.
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: NEXT_PUBLIC_PAYPAL_ENVIRONMENT
+        value: sandbox
+      - key: NEXT_PUBLIC_PAYPAL_CLIENT_ID
+        sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: CLAUDE_MODEL
+        value: claude-sonnet-5-5
+      - key: REVIEW_LIMIT_PER_SESSION_HOUR
+        value: "20"
+      - key: REVIEW_LIMIT_PER_IP_HOUR
+        value: "40"
+      - key: REVIEW_LIMIT_PER_DAY
+        value: "100"

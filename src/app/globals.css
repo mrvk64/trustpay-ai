@@ -570,6 +570,11 @@ a {
   font-size: 0.7rem;
 }
 
+.site-footer a {
+  color: var(--mint-deep);
+  font-weight: 650;
+}
+
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
