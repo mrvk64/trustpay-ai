@@ -90,7 +90,7 @@ Fill in the test buyer in Devpost itself. Never commit these credentials to the 
 
 ## Video
 
-TODO public YouTube link. The finished cut (1:55, 1080p) was recorded from the live demo, including a real PayPal Sandbox approval and capture, with an ElevenLabs voiceover and burned-in captions. Script: `docs/DEMO_VIDEO_SCRIPT.md`.
+https://youtu.be/b9k92LkxQdY (set to Public before submitting). The finished cut (1:55, 1080p) was recorded from the live demo, including a real PayPal Sandbox approval and capture, with an ElevenLabs voiceover and burned-in captions. Script: `docs/DEMO_VIDEO_SCRIPT.md`.
 
 The voiceover was made on the ElevenLabs free plan, which requires "elevenlabs.io" in the title and allows no commercial use, so keep monetization off.
 

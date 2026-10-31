@@ -6,6 +6,8 @@ Built solo for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/)
 
 **Live demo:** https://trustpay-ai-d73r.onrender.com (free hosting: the first visit after a quiet spell can take about a minute while the server wakes up). Paying requires a PayPal Sandbox Personal account.
 
+**Demo video (1:55):** https://youtu.be/b9k92LkxQdY
+
 ![TrustPay AI: the review card beside the "Confidence before commitment" headline](docs/screenshots/1-overview.jpg)
 
 | Unsafe terms pause payment | Claude ignores a hidden instruction; a TrustPay rule also fires | Approved terms unlock PayPal |
