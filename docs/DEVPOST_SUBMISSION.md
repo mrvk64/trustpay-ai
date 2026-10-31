@@ -56,16 +56,16 @@ Five built-in synthetic scenarios show each outcome: clear terms, a missing deli
 - In payments, the useful split is "AI explains, code enforces." It keeps the experience helpful without handing money movement to a model.
 - PayPal's `custom_id` and `PayPal-Request-Id` are simple, effective ways to tie an external decision to an order and to make retries safe.
 
+### Scope
+
+TrustPay judges the terms a buyer is shown, not the seller behind them. It doesn't verify identity, score fraud risk, or hold funds, and it isn't financial or legal advice. Sticking to what the text actually says is what lets every finding point to an exact quote. This build runs on PayPal Sandbox, so no real money moves.
+
 ### What's next
 
 - A hosted demo with rate limiting, so anyone can try it without their own API keys.
 - Durable storage and PayPal webhook reconciliation (with signature verification) instead of local files and single-process memory.
 - A seller-side view, where sellers fix flagged terms before a buyer ever sees them.
 - More purchase types than a single fixed-price item.
-
-### Limitations
-
-TrustPay assesses only the text it is given. It does not verify seller identity, detect fraud, hold funds in escrow, or guarantee delivery, and its review is not financial or legal advice. It runs on PayPal Sandbox only, and no real money moves.
 
 ## Built with
 
