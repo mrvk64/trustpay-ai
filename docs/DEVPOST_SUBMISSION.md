@@ -90,7 +90,35 @@ Fill in the test buyer in Devpost itself. Never commit these credentials to the 
 
 ## Video
 
-TODO public YouTube link (under 3 minutes). Script: `docs/DEMO_VIDEO_SCRIPT.md`.
+TODO public YouTube link. The finished cut (1:55, 1080p) was recorded from the live demo, including a real PayPal Sandbox approval and capture, with an ElevenLabs voiceover and burned-in captions. Script: `docs/DEMO_VIDEO_SCRIPT.md`.
+
+The voiceover was made on the ElevenLabs free plan, which requires "elevenlabs.io" in the title and allows no commercial use, so keep monetization off.
+
+**YouTube title**
+
+TrustPay AI: Claude-reviewed PayPal checkout | PayPal AI Hackathon demo (voice: elevenlabs.io)
+
+**YouTube description**
+
+```text
+TrustPay AI reviews a seller's terms with Claude before PayPal checkout opens. Missing terms get questions for the seller, unsafe requests (including a hidden instruction aimed at the AI) pause payment, and approved terms unlock a PayPal Sandbox order that is captured and linked back to its review.
+
+Live demo: https://trustpay-ai-d73r.onrender.com
+Code (MIT): https://github.com/mrvk64/trustpay-ai
+
+0:00 TrustPay AI
+0:03 The problem
+0:16 What TrustPay does
+0:26 A hidden instruction to the AI is blocked
+0:50 Vague terms become questions for the seller
+1:06 The seller clarifies and the decision updates
+1:21 Approve and pay in PayPal Sandbox
+1:41 The receipt keeps its review
+
+Built for the PayPal AI Hackathon with the PayPal JavaScript SDK v6 and Orders v2 API (Sandbox) and Claude Sonnet 5.5 by Anthropic. Everything shown runs on PayPal Sandbox; no real money moves.
+
+Voiceover generated with ElevenLabs (elevenlabs.io).
+```
 
 ## Suggested prize categories
 

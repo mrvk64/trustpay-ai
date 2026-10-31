@@ -17,7 +17,7 @@ Submission deadline: November 12, 2026 at noon PST (2 p.m. America/Chicago). Tar
 | Complete source, assets, setup | README has a judge quick start, AI model/service disclosure, demo sequence, and troubleshooting. Template Next.js/Vercel logos removed; app icon is original. Fresh-clone build verified locally on October 30, 2026. |
 | Judge access | Hosted demo live on Render at https://trustpay-ai-d73r.onrender.com (verified October 30, 2026: blocked, clarify, and eligible reviews, plus PayPal order creation). Remaining: Claude Console spend limit, a dedicated Sandbox test buyer, and its login in Devpost private notes. Free plan sleeps after 15 idle minutes. |
 | Project description | Draft in `docs/DEVPOST_SUBMISSION.md`: pitch, problem, workflow, PayPal APIs, tools, challenges, limitations. Remaining: fill in the repository and video links, then paste into Devpost. |
-| Public YouTube video under 3 minutes | Script and recording setup in `docs/DEMO_VIDEO_SCRIPT.md` (target 2:30, production build, synthetic scenarios, no third-party brands). Remaining: record, upload as Public, and add the link. |
+| Public YouTube video under 3 minutes | Finished 1:55 cut recorded from the live demo (real Sandbox approval and capture, ElevenLabs voiceover with "elevenlabs.io" in the title per its free-plan terms, burned-in captions). Remaining: upload as Public with monetization off, then add the link to Devpost. |
 | Rights and English materials | Review assets/dependency licenses and permission for included third-party marks/media; use English throughout. |
 | Registration and eligibility | User must confirm Devpost registration, age/residency eligibility, ownership, and absence of excluded affiliations/conflicts under the rules. |
 
